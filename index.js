@@ -3,14 +3,17 @@ const choices = ["rock", "paper", "scissors"];
 
 console.log("|__^Rock-Paper-Scissors^__|");
 
+// -- computer choices
 const get_computer_choice = () => choices[Math.floor(Math.random() * choices.length)];
 
+// -- user choices
 const get_your_choice = (input) => {
   if(input === 'rock') return choices[0];
   else if(input === 'paper') return choices[1];
   else if(input === 'scissors') return choices[2];
 }
 
+// -- game rounds
 const play_round = (your_choice, computer_choice) => {
   if(!your_choice) {
     return "Invalid choice! try again."
@@ -20,7 +23,8 @@ const play_round = (your_choice, computer_choice) => {
     draw_matches++;
     return `It's a draw! You both chose "${your_choice}".`;
   }
-
+  
+  // --main logic
   const win_rule = {
     rock: "scissors",
     paper: "rock",
@@ -37,6 +41,7 @@ const play_round = (your_choice, computer_choice) => {
   }
 }
 
+// -- main and input function
 const play_game = () => {  
   let i = 0;
   while(i < 5) {
