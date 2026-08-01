@@ -1,4 +1,4 @@
-let your_score = 0, computer_score = 0, draw_matches = 0;
+let you = 0, computer = 0, draw = 0
 
 const choices = ["rock", "paper", "scissors"];
 
@@ -7,14 +7,15 @@ const get_computer_choice = () => choices[Math.floor(Math.random() * choices.len
 
 // -- game rounds
 const play_round = (your_choice) => {
-  computer_choice = get_computer_choice();
+  const computer_choice = get_computer_choice();
 
   if(!your_choice) {
     return "Invalid choice! try again."
   }
 
   if(your_choice === computer_choice) {
-    draw_matches++;
+    draw++;
+    document.querySelector('#score-Draw').textContent = draw;
     return `It's a draw! You both chose "${your_choice}".`;
   }
   
@@ -26,37 +27,68 @@ const play_round = (your_choice) => {
   }
   
   if(win_rule[your_choice] === computer_choice) {
-    your_score++;
+    you++;
+    document.querySelector('#score-You').textContent = you;
     return `You win! your "${your_choice}" beats computer's "${computer_choice}".`; 
   }
   else {
-    computer_score++;
+    computer++;
+    document.querySelector('#score-Computer').textContent = computer;
     return `You Lose! computer's "${computer_choice}" beats your "${your_choice}".`;
   }
 }
 
+// -- buttons and result
+const div_button = document.querySelector("#js-buttons");
+const result = document.querySelector("#js-result");
+
 const button_config = [
   {
     text: "Rock",
-    action: () => play_round("rock"),
+    action: () => {
+      result.textContent = play_round("rock");
+    },
   },
   {
     text: "Paper",
-    action: () => play_round("paper"),
+    action: () => {
+      result.textContent = play_round("paper");
+    },
   },
   {
     text: "Scissors",
-    action: () => play_round("scissors")
+    action: () => {
+      result.textContent = play_round("scissors");
+    },
   }
 ]
 
-const body = document.querySelector("body");
-
 button_config.forEach((config) => {
   const button = document.createElement("button");
+  button.classList.add("button");
   button.textContent = config.text;
   button.onclick = config.action;
-  body.append(button);
+  div_button.appendChild(button);
+})
+
+// -- score
+const div_score = document.querySelector("#js-score");
+const result_config = ["You", "Computer", "Draw"];
+
+result_config.forEach((config) => {
+  // -- score paragraph
+  const para = document.createElement("p");
+  para.classList.add("score");
+  
+  para.textContent = `${config}: `;
+
+  // -- score span
+  const span = document.createElement("span");
+  span.setAttribute("id", `score-${config}`);
+  span.textContent = 0
+
+  para.appendChild(span);
+  div_score.appendChild(para);
 })
 
 
