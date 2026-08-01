@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #e5e5e5;
+    font-family: 'Montserrat', sans-serif;   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100dvh;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+    padding: 32px 48px;
+    border-radius: 16px;
+    box-shadow: 0 4px 8px 0 #e4e4e4;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: 800;
+    padding: 4px 8px;
+}
+
+.button-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 16px 0;
+}
+
+.button {
+    background-color: #fcf114;
+    border: none;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 64px;
+    padding: 0px 20px;
+}
+
+.button:hover {
+    cursor: pointer;
+    border: 1px solid rgb(209, 220, 57);
+}
+
+.result {
+    margin: 16px 0;
+    border: 1px solid#fcf114;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*#fcf114 BUTTONS;
+fonts
+Space Grotesk
+Montserrat
+*/
