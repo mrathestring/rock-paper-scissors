@@ -41,6 +41,7 @@ const play_round = (your_choice, computer_choice) => {
   }
 }
 
+/*
 // -- main and input function
 const play_game = () => {  
   let i = 0;
@@ -60,6 +61,7 @@ const play_game = () => {
   console.log(`Draw Matches: ${draw_matches}`);
 }
 
+*/
 play_game();
 
 
