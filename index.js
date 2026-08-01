@@ -1,4 +1,4 @@
-let you = 0, computer = 0, draw = 0
+let you = 0, computer = 0, draw = 0;
 
 const choices = ["rock", "paper", "scissors"];
 
