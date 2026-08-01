@@ -44,19 +44,19 @@ const result = document.querySelector("#js-result");
 
 const button_config = [
   {
-    text: "Rock",
+    text: "✊",
     action: () => {
       result.textContent = play_round("rock");
     },
   },
   {
-    text: "Paper",
+    text: "✋",
     action: () => {
       result.textContent = play_round("paper");
     },
   },
   {
-    text: "Scissors",
+    text: "✌️",
     action: () => {
       result.textContent = play_round("scissors");
     },
