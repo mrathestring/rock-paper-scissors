@@ -1,20 +1,14 @@
 let your_score = 0, computer_score = 0, draw_matches = 0;
-const choices = ["rock", "paper", "scissors"];
 
-console.log("|__^Rock-Paper-Scissors^__|");
+const choices = ["rock", "paper", "scissors"];
 
 // -- computer choices
 const get_computer_choice = () => choices[Math.floor(Math.random() * choices.length)];
 
-// -- user choices
-const get_your_choice = (input) => {
-  if(input === 'rock') return choices[0];
-  else if(input === 'paper') return choices[1];
-  else if(input === 'scissors') return choices[2];
-}
-
 // -- game rounds
-const play_round = (your_choice, computer_choice) => {
+const play_round = (your_choice) => {
+  computer_choice = get_computer_choice();
+
   if(!your_choice) {
     return "Invalid choice! try again."
   }
@@ -41,6 +35,53 @@ const play_round = (your_choice, computer_choice) => {
   }
 }
 
+const button_config = [
+  {
+    text: "Rock",
+    action: () => play_round("rock"),
+  },
+  {
+    text: "Paper",
+    action: () => play_round("paper"),
+  },
+  {
+    text: "Scissors",
+    action: () => play_round("scissors")
+  }
+]
+
+const body = document.querySelector("body");
+
+button_config.forEach((config) => {
+  const button = document.createElement("button");
+  button.textContent = config.text;
+  button.onclick = config.action;
+  body.append(button);
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+// -- user choices
+const get_your_choice = (input) => {
+  if(input === 'rock') return choices[0];
+  else if(input === 'paper') return choices[1];
+  else if(input === 'scissors') return choices[2];
+}
+*/
+
 /*
 // -- main and input function
 const play_game = () => {  
@@ -59,9 +100,6 @@ const play_game = () => {
   console.log(`Your Score: ${your_score}`);
   console.log(`Computer Score: ${computer_score}`);
   console.log(`Draw Matches: ${draw_matches}`);
+  play_game();
 }
-
 */
-play_game();
-
-
