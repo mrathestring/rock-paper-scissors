@@ -44,19 +44,19 @@ const result = document.querySelector("#js-result");
 
 const button_config = [
   {
-    text: "✊",
+    text: "./assets/rock.png",
     action: () => {
       result.textContent = play_round("rock");
     },
   },
   {
-    text: "✋",
+    text: "assets/paper.png",
     action: () => {
       result.textContent = play_round("paper");
     },
   },
   {
-    text: "✌️",
+    text: "assets/scissors.png",
     action: () => {
       result.textContent = play_round("scissors");
     },
@@ -64,9 +64,17 @@ const button_config = [
 ]
 
 button_config.forEach((config) => {
-  const button = document.createElement("button");
+  const button = document.createElement("div");
   button.classList.add("button");
-  button.textContent = config.text;
+
+  const img = document.createElement('img');
+  img.classList.add("images")
+  img.src = `${config.text}`;
+  img.alt = 'Button Icon';
+
+  button.textContent = ' '; 
+
+  button.appendChild(img);
   button.onclick = config.action;
   div_button.appendChild(button);
 })
