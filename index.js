@@ -9,27 +9,27 @@ const get_computer_choice = () => choices[Math.floor(Math.random() * choices.len
 const play_round = (your_choice) => {
   const computer_choice = get_computer_choice();
 
-  if(!your_choice) {
+  if (!your_choice) {
     return "Invalid choice! try again."
   }
 
-  if(your_choice === computer_choice) {
+  if (your_choice === computer_choice) {
     draw++;
     document.querySelector('#score-Draw').textContent = draw;
     return `It's a draw! You both chose "${your_choice}".`;
   }
-  
+
   // --main logic
   const win_rule = {
     rock: "scissors",
     paper: "rock",
     scissors: "paper"
   }
-  
-  if(win_rule[your_choice] === computer_choice) {
+
+  if (win_rule[your_choice] === computer_choice) {
     you++;
     document.querySelector('#score-You').textContent = you;
-    return `You win! your "${your_choice}" beats computer's "${computer_choice}".`; 
+    return `You win! your "${your_choice}" beats computer's "${computer_choice}".`;
   }
   else {
     computer++;
@@ -72,7 +72,7 @@ button_config.forEach((config) => {
   img.src = `${config.text}`;
   img.alt = 'Button Icon';
 
-  button.textContent = ' '; 
+  button.textContent = ' ';
 
   button.appendChild(img);
   button.onclick = config.action;
@@ -87,7 +87,7 @@ result_config.forEach((config) => {
   // -- score paragraph
   const para = document.createElement("p");
   para.classList.add("score");
-  
+
   para.textContent = `${config}: `;
 
   // -- score span
@@ -98,6 +98,57 @@ result_config.forEach((config) => {
   para.appendChild(span);
   div_score.appendChild(para);
 })
+
+
+
+// new code update-01
+
+const rock_paper_scissors = {
+  player_score: 0,
+  computer_score: 0,
+  draw: 0,
+  playRound(player_choice) {
+    const computer_choice = get_computer_choice();
+
+    if (!player_choice) {
+      return "Invalid choice! try again."
+    }
+
+    if (player_choice === computer_choice) {
+      this.draw++;
+      return `It's a draw! You both chose "${player_choice}".`;
+    }
+
+    // --main logic
+    const win_rule = {
+      rock: "scissors",
+      paper: "rock",
+      scissors: "paper"
+    }
+
+    if (win_rule[player_choice] === computer_choice) {
+      this.player_score++;
+      return `You win! your "${player_choice}" beats computer's "${computer_choice}".`;
+    }
+    else {
+      this.computer_score++;
+      return `You Lose! computer's "${computer_choice}" beats your "${player_choice}".`;
+    }
+  },
+
+  get_winning_player() {
+    if(this.player_score == this.computer_score) {
+      return "It's a draw match."
+    }
+    const result = (this.player_score > this.computer_score) ? "You Win!" : "Computer Win!";
+    return result;
+  },
+
+  reset() {
+    this.player_score = 0;
+    this.computer_score = 0;
+  }
+}
 
 
 
