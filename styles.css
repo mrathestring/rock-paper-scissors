@@ -3,7 +3,7 @@ body {
     padding: 0;
     box-sizing: border-box;
     background-color: #e5e5e5;
-    font-family: 'Montserrat', sans-serif;   
+    font-family: 'Montserrat', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,6 +24,8 @@ body {
     font-size: 32px;
     font-weight: 800;
     padding: 4px 8px;
+    display: flex;
+    gap: 10px;
 }
 
 .button-div {
@@ -66,9 +68,46 @@ body {
     text-align: center;
 }
 
+.score-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 16px;
+}
 
+.score-para {
+    font-size: large;
+    font-weight: 500;
 
+}
 
+.rounds {
+    font-weight: bold;
+    font-size: large;
+    background-color: #fcf114;
+    padding: 8px;
+}
 
+.reset {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-top: 16px;
+}
 
+.reset-btn {
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 8px 16px;
+    font-size: medium;
+    font-weight: bold;
+    background-color: #efefef;
+}
 
+.reset-btn:hover {
+    cursor: pointer;
+    border: 1px solid rgb(209, 220, 57);
+}
